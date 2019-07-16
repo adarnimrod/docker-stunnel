@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eux
+
+# shellcheck disable=SC2002
+cat /etc/stunnel/stunnel.conf.tmpl | envsubst | tee /etc/stunnel/stunnel.conf
+exec tini -- "$@"
